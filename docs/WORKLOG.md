@@ -4,6 +4,13 @@
 > Kalau file ini > 200 baris: arsipkan entry tertua ke `docs/WORKLOG-ARCHIVE.md`, sisakan ~10 entry terbaru.
 > Format lihat `AGENTS.md` bagian 3.
 
+## [2026-07-28] Design & Branding · Generasi Ikon Aplikasi Desktop Native (Windows, Linux, macOS)
+- **Ubah:** Membuat berkas master ikon `public/app-icon.png` (1024x1024) dan meng-generate seluruh format ikon OS native (`npx tauri icon`) di folder `src-tauri/icons/` (`icon.ico`, `icon.icns`, `32x32.png`, `128x128.png`, `icon.png`, dll).
+- **Kenapa:** Pertanyaan user ("dan apakah logo aplikasi disini nantinya sudah memakai logo yang tersedia sekarang?").
+- **Efek:** Saat aplikasi **Terminalku** diinstall di Linux (App Launcher / Taskbar), Windows (.exe / Start Menu), atau macOS (Dock), ikon aplikasi akan secara otomatis tampil menggunakan logo resmi **`T _`** squircle tile yang baru. `git commit` lulus.
+
+---
+
 ## [2026-07-28] Documentation · Penulisan Ulang Berkas README.md dalam Bahasa Inggris (English Version)
 - **Ubah:** `README.md` (menulis ulang seluruh isi dokumentasi utama repositori menggunakan Bahasa Inggris standar profesional, memperbarui nama produk **Terminalku**, menambahkan logo vektor SVG resmi, badge status, tabel arsitektur teknis, daftar 8 fitur unggulan, serta panduan pengembang & rilis).
 - **Kenapa:** Permintaan user ("coba perbaiki dulu readmenya dong, dan aku mau biar readmenya pakai bahasa inggris").
