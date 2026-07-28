@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminalku</title>
+    <script>
+      // Terapkan tema sebelum paint pertama agar tidak ada kedip gelap saat mode terang.
+      (function () {
+        try {
+          var saved = localStorage.getItem("remote_app_theme");
+          var mode = saved === "light" || saved === "dark" ? saved : null;
+          var theme =
+            mode ||
+            (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
