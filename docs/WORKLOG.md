@@ -4,6 +4,13 @@
 > Kalau file ini > 200 baris: arsipkan entry tertua ke `docs/WORKLOG-ARCHIVE.md`, sisakan ~10 entry terbaru.
 > Format lihat `AGENTS.md` bagian 3.
 
+## [2026-07-28] Design & Branding · Penggunaan Berkas `logo.svg` Asli Milik Pengguna Untuk Seluruh Ikon Native
+- **Ubah:** Mengambil berkas vektor asli `/home/diki/Documents/logo.svg`, me-render ke PNG master 1024x1024 via `@resvg/resvg-js`, dan meng-generate ulang seluruh format ikon native OS di `src-tauri/icons/` (`icon.ico`, `icon.icns`, `32x32.png`, `128x128.png`, `icon.png`, `public/logo.svg`).
+- **Kenapa:** Permintaan user ("wah aku cek logo yang kau buat jelek, aku sudah punya log.svg, bisa pakai itu saja? dan jika butuh diganti paling ganti backgroudnya aja agar ada kotak atau semacamnya").
+- **Efek:** Seluruh ikon aplikasi desktop (Linux App Launcher, Windows Taskbar/Start Menu, macOS Dock) dan komponen UI di dalam aplikasi kini 100% menggunakan desain presisi dari berkas `logo.svg` asli milik pengguna. `npm run build` & `cargo test` 100% lulus.
+
+---
+
 ## [2026-07-28] Design & Branding · Generasi Ikon Aplikasi Desktop Native (Windows, Linux, macOS)
 - **Ubah:** Membuat berkas master ikon `public/app-icon.png` (1024x1024) dan meng-generate seluruh format ikon OS native (`npx tauri icon`) di folder `src-tauri/icons/` (`icon.ico`, `icon.icns`, `32x32.png`, `128x128.png`, `icon.png`, dll).
 - **Kenapa:** Pertanyaan user ("dan apakah logo aplikasi disini nantinya sudah memakai logo yang tersedia sekarang?").
