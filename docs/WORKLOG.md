@@ -4,6 +4,13 @@
 > Kalau file ini > 200 baris: arsipkan entry tertua ke `docs/WORKLOG-ARCHIVE.md`, sisakan ~10 entry terbaru.
 > Format lihat `AGENTS.md` bagian 3.
 
+## [2026-07-28] Documentation · Penulisan Ulang Berkas README.md dalam Bahasa Inggris (English Version)
+- **Ubah:** `README.md` (menulis ulang seluruh isi dokumentasi utama repositori menggunakan Bahasa Inggris standar profesional, memperbarui nama produk **Terminalku**, menambahkan logo vektor SVG resmi, badge status, tabel arsitektur teknis, daftar 8 fitur unggulan, serta panduan pengembang & rilis).
+- **Kenapa:** Permintaan user ("coba perbaiki dulu readmenya dong, dan aku mau biar readmenya pakai bahasa inggris").
+- **Efek:** Dokumentasi repositori GitHub **Terminalku** kini tampil sangat profesional, lengkap, ramah kontributor internasional, dan siap dipublikasikan. `git commit` lulus.
+
+---
+
 ## [2026-07-28] Fix UI/UX · Restrukturisasi CSS Input Group Satuan "lines" & "px" (Bebas Tumpang Tindih)
 - **Ubah:** `src/App.css` (mengubah `.settings-number-input-wrap` dan `.settings-input-unit` dari `position: absolute` menjadi *flex input group container* dengan suffix badge berlatar `var(--bg-surface-2)` dan garis pembatas vertikal).
 - **Kenapa:** Laporan UI dari user di mana tulisan `"lines"` dan `"px"` menumpuk tumpang tindih di atas panah spinner bawaan input angka.
