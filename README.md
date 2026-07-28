@@ -1,94 +1,113 @@
-# Remote APP — Aplikasi Remote Access Desktop Modern (Tauri v2 + React)
+<div align="center">
+  <img src="public/logo.svg" alt="Terminalku Logo" width="120" height="120" />
+  <h1>Terminalku</h1>
+  <p><strong>Next-Gen Desktop Remote Access Client (SSH, Serial, Telnet, FTP & Local Terminal)</strong></p>
 
-![Remote APP Logo](dist/assets/index-ct7NtgBZ.css) *(Aplikasi Desktop Remote Management Perangkat Jaringan & Server)*
-
-**Remote APP** adalah aplikasi desktop modern, ringan, dan sangat cepat yang dirancang khusus untuk administrator jaringan, insinyur sistem, dan pengembang. Dibangun di atas **Tauri v2** dan **React 19**, aplikasi ini menyediakan antarmuka akses jarak jauh serba ada untuk protokol **SSH**, **Telnet**, **Serial Console**, **FTP/FTPS**, dan **Terminal Lokal (PTY)**.
+  [![Tauri v2](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://v2.tauri.app/)
+  [![React 19](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
+  [![Rust](https://img.shields.io/badge/Rust-1.75+-orange.svg)](https://www.rust-lang.org/)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+</div>
 
 ---
 
-## ✨ Fitur Utama
+## 📖 Overview
 
-### 📡 1. Serial Console & Manajemen Hardware Cerdas
-- **Deteksi Port Otomatis**: Mendeteksi port USB-to-Serial (`/dev/ttyUSB*`, `/dev/ttyACM*`, `COM*`) secara *real-time*.
-- **Auto-Detect Baud Rate Cerdas**: Menggunakan algoritma rasio evaluasi ASCII murni & pembatas prompt untuk menentukan kecepatan port (`38400`, `115200`, `9600`, `57600`, `19200`) secara akurat dalam waktu <0.4 detik tanpa *lag*.
-- **1-Click Fix Izin Dialout & udev (Linux)**: Memperbaiki masalah `Permission Denied` dengan 1 klik via `pkexec` (menambahkan pengguna ke grup `dialout` dan membuat aturan udev `/etc/udev/rules.d/99-remote-app-serial.rules`).
-- **Indikator Status Izin Dinamis**: Tombol status menampilkan `✓ Izin Dialout Fix` (hijau) atau `🔧 Fix Izin Dialout` (merah) secara otomatis.
-- **Auto-Kill Force Release pada `EBUSY`**: Jika port terkunci oleh proses latar belakang atau ModemManager, aplikasi secara otomatis menjalankan `fuser -k -9` untuk melepas kuncian port secara aman.
-- **Pembersih Karakter Garbled (Framing Noise Sanitizer)**: Memfilter byte mentah non-ASCII sehingga terminal terbebas dari deretan karakter pengganti acak (`\uFFFD`).
+**Terminalku** is a modern, ultra-fast, and lightweight desktop application engineered specifically for network engineers, system administrators, and developers. Built on **Tauri v2** and **React 19**, it provides an all-in-one remote access suite for **SSH**, **Telnet**, **Serial Console**, **FTP/FTPS**, and **Local Terminal (PTY)** sessions with a Termius-inspired user interface.
 
-### 🔐 2. Client SSH & Telnet Handal
-- **SSH v2 Full Feature**: Mendukung otentikasi kata sandi serta kunci privat (*RSA, ED25519, ECDSA*) dengan passphrase.
-- **Telnet dengan Auto-Expect**: Mendukung penanganan negosiasi Telnet IAC (ECHO, SGA, NAWS) serta *Auto-Expect Login* untuk masuk secara otomatis menggunakan kredensial tersimpan.
-- **Auto-Reconnect Opsional**: Otomatis menghubungkan kembali sesi yang terputus akibat gangguan jaringan.
+---
 
-### 💻 3. Terminal Lokal & Multi-Tab UX
-- **Terminal Lokal (PTY)**: Mengintegrasikan terminal shell bawaan sistem OS (`bash`, `zsh`, `powershell`, `cmd`) langsung di dalam aplikasi.
-- **Multi-Tab & Split View (Gaya Termius)**: Membuka banyak sesi sekaligus dalam tab terpisah atau membagi layar terminal (*vertical/horizontal split view*) untuk perbandingan *real-time*.
-- **Drag-to-Reorder & Mouse Wheel Scroll**: Memindahkan posisi tab secara intuitif dan navigasi tab cepat via *scroll wheel*.
+## ✨ Key Features
+
+### 📡 1. Smart Serial Console & Hardware Management
+- **Real-Time Port Discovery**: Automatically detects connected USB-to-Serial adapters (`/dev/ttyUSB*`, `/dev/ttyACM*`, `COM*`) on the fly.
+- **Sub-Second Baud Rate Auto-Detection**: Uses pure ASCII ratio evaluation & prompt heuristics to accurately identify target baud rates (`38400`, `115200`, `9600`, `57600`, `19200`) in `<0.4s` without lag.
+- **1-Click Dialout & udev Fix (Linux)**: Fixes `Permission Denied` errors in one click via `pkexec` (adds user to `dialout` group and creates `/etc/udev/rules.d/99-remote-app-serial.rules`).
+- **Force Release on `EBUSY`**: Automatically kills lock files or background processes locking the serial device (`fuser -k -9`).
+- **Framing Noise Sanitizer**: Filters out non-ASCII garbage bytes (`\uFFFD`) caused by mismatched initial baud rates.
+
+### 🔐 2. Enterprise SSH & Telnet Engine
+- **Full SSH v2 Suite**: Supports password & private key authentication (*RSA, ED25519, ECDSA*) with passphrase handling.
+- **Telnet Auto-Expect Login**: Handles Telnet IAC negotiations (ECHO, SGA, NAWS) and performs automatic credential submission upon prompt detection.
+- **Auto-Reconnect**: Seamlessly attempts connection recovery if network drops occur.
+
+### 💻 3. Multi-Tab Workspace & Split Terminal
+- **Local Shell (PTY)**: Integrated system terminal (`bash`, `zsh`, `powershell`, `cmd`) right inside the workspace.
+- **Split-Screen Workspace**: Compare sessions in real-time with vertical and horizontal split views.
+- **Termius-Style Multi-Tab UX**: Tab re-ordering, smooth keyboard shortcuts (`Ctrl+B` for sidebar, `Ctrl+F` for terminal search), and mouse wheel tab navigation.
 
 ### 📂 4. Dual-Pane FTP & FTPS File Manager
-- **Manajer File Dua Sisi**: Jelajahi direktori lokal (panel kiri) dan server remote (panel kanan) secara berdampingan dengan dukungan FTPS (FTP over TLS).
+- **Side-by-Side File Explorer**: Browse local storage (left pane) and remote servers (right pane) simultaneously over secure TLS (FTPS).
 
-### 🏷️ 5. Smart Device Auto-Detection & Preset Vendor
-- **Pendeteksi Perangkat Pasif**: Mengenali jenis perangkat keras & sistem operasi secara otomatis dari banner konsol (Cisco, MikroTik, Huawei, Juniper, Linux).
-- **Command Panel Kontekstual**: Menyediakan pustaka perintah preset siap pakai yang menyesuaikan dengan tipe vendor tab yang sedang aktif.
+### 🏷️ 5. Passive Vendor Detection & Command Presets
+- **Hardware Recognition**: Passively detects vendor hardware & OS types from console banners (Cisco, MikroTik, Huawei, Juniper, Linux).
+- **Contextual Command Palette**: Offers quick-action command presets tailored to the active tab's detected vendor.
 
-### 📌 6. Snippet / Macro Manager (FR-21)
-- **Library Perintah Tersimpan**: Simpan command yang sering digunakan ke dalam pustaka SQLite persisten.
-- **Filter per Vendor & 1-Click Send**: Kelompokkan snippet berdasarkan vendor (Cisco, MikroTik, Linux, dll) dan kirim ke terminal aktif hanya dengan 1 klik.
+### 📌 6. Snippet & Macro Library
+- **Persistent Macro Library**: Save frequently used commands into a local SQLite database.
+- **Vendor Filtering & 1-Click Dispatch**: Filter snippets by vendor category and send commands directly to active terminals in a single click.
 
-### 💾 7. Session Logging UI (FR-10)
-- **Perekaman Sesi Otomatis**: Rekam seluruh byte output terminal ke dalam file log di `app_data/logs/`.
-- **Integrasi 1-Klik**: Buka file log langsung di aplikasi bawaan OS via `open_log_file`.
+### 🎨 7. Adaptive Appearance & Live Preview
+- **Dynamic Light / Dark Theme**: Automatically adapts between Dark Mode and Light Mode based on system settings or user preference.
+- **Live Preview & Safe Rollback**: Preview UI appearance changes live in the background, with instant auto-rollback if canceled without saving.
 
-### 🔒 8. Pengelolaan Profil & Kredensial Terenkripsi
-- **Penyimpanan Kredensial Aman**: Password dan passphrase disimpan di dalam OS Credential Keyring (bukan *plaintext*).
-- **Organisasi Folder/Tag**: Mengelompokkan profil server/perangkat ke dalam folder custom untuk akses cepat.
-
----
-
-## 🛠️ Teknologi & Arsitektur
-
-- **Core Desktop**: [Tauri v2](https://v2.tauri.app/) (Rust + Webview)
-- **Backend Protocol Engine**: `russh` (SSH), `tokio-serial` (Serial UART), `suppaftp` (FTP), `portable-pty` (Terminal PTY)
-- **Frontend UI**: React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons
-- **Terminal Canvas**: `@xterm/xterm` v5 dengan addon `fit`, `web-links`, dan `search`
-- **Penyimpanan Lokal**: SQLite (Profil & Folder) + Native OS Keyring (Kredensial)
+### 🚀 8. In-App Auto-Updater (Tauri v2)
+- **Background Update Checker**: Checks for new version releases automatically on startup.
+- **Sleek Update Modal**: View release notes, progress bars, and relaunch into new versions seamlessly.
 
 ---
 
-## 🚀 Panduan Memulai & Instalasi
+## 🛠️ Architecture & Tech Stack
 
-### Prasyarat Pengembangan
-1. **Node.js**: v18+ dan `npm`
-2. **Rust**: Rustup & Cargo (v1.75+)
-3. **Dependensi Linux (Debian/Ubuntu)**:
+| Layer | Technology |
+| :--- | :--- |
+| **Core Desktop** | [Tauri v2](https://v2.tauri.app/) (Rust + Webview) |
+| **Protocol Engine** | `russh` (SSH), `tokio-serial` (Serial UART), `suppaftp` (FTP), `portable-pty` (Local PTY) |
+| **Frontend UI** | React 19, TypeScript, Vite, Vanilla CSS, Lucide Icons |
+| **Terminal Rendering** | `@xterm/xterm` v5 with `fit`, `web-links`, and `search` addons |
+| **Local Storage** | SQLite (Profiles & Folders) + OS Native Credential Keyring |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+1. **Node.js**: v18+ and `npm`
+2. **Rust**: Rustup & Cargo (`v1.75+`)
+3. **Linux System Build Dependencies (Debian/Ubuntu)**:
    ```bash
    sudo apt update
    sudo apt install -y build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev fuser pkexec
    ```
 
-### Jalankan Mode Pengembang (Development)
+### Development Setup
 ```bash
-# Clone repositori & masuk ke direktori
-cd "Remote APP"
+# 1. Clone repository
+git clone https://github.com/agandik/Terminalku.git
+cd Terminalku
 
-# Install dependensi frontend
+# 2. Install frontend dependencies
 npm install
 
-# Jalankan server pengembang Tauri
+# 3. Launch Tauri dev server
 npm run tauri dev
 ```
 
-### Build Aplikasi Produksi
+### Production Build
 ```bash
-# Kompilasi bundel aplikasi lokal
+# Compile native binary and installers (.deb & .AppImage)
 npm run tauri build
 ```
-Hasil instalasi akan berada di folder `src-tauri/target/release/bundle/`.
+Built installer bundles will be generated in `src-tauri/target/release/bundle/`.
 
 ---
 
-## 📜 Lisensi & Kontribusi
+## 📄 Release & Auto-Updater Guide
 
-Dibuat & dipelihara untuk efisiensi tinggi dalam manajemen remote access. Hak Cipta © 2026 Remote APP Team.
+For instructions on publishing new version releases and configuring the `updater.json` manifest for GitHub Releases, refer to [docs/UPDATER.md](docs/UPDATER.md).
+
+---
+
+## 📜 License
+
+Distributed under the **MIT License**. Created and maintained for high-efficiency remote management. Copyright © 2026 Terminalku Team.
