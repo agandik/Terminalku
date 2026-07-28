@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "notes": "Terminalku v0.1.0 Official Release - Professional Multi-Tab Terminal & Remote Access Client",
+  "pub_date": "2026-07-28T12:00:00Z",
+  "platforms": {
+    "linux-x86_64": {
+      "signature": "",
+      "url": "https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.AppImage"
+    }
+  }
+}
