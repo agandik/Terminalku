@@ -69,9 +69,37 @@
 
 ---
 
-## 🚀 Getting Started
+## 📥 Installation for End-Users
 
-### Prerequisites
+### Debian / Ubuntu / Linux Mint (`.deb` Package via `apt`)
+
+You can install **Terminalku** directly on Ubuntu, Debian, Linux Mint, or Pop!_OS using `sudo apt install`:
+
+```bash
+# 1. Download the latest .deb installer package from GitHub Releases
+wget https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb
+
+# 2. Install using APT (automatically installs required system dependencies)
+sudo apt install ./Terminalku_0.1.0_amd64.deb
+```
+
+Once installed, **Terminalku** will appear in your Desktop Application Launcher, or you can launch it from terminal by typing `terminalku`.
+
+### Portable Linux AppImage (No Installation Required)
+
+```bash
+# Download and grant executable permission
+chmod +x Terminalku_0.1.0_amd64.AppImage
+
+# Run Terminalku directly
+./Terminalku_0.1.0_amd64.AppImage
+```
+
+---
+
+## 🛠️ Building & Contributing (For Developers)
+
+### Prerequisites for Developers
 1. **Node.js**: v18+ and `npm`
 2. **Rust**: Rustup & Cargo (`v1.75+`)
 3. **Linux System Build Dependencies (Debian/Ubuntu)**:
@@ -93,7 +121,7 @@ npm install
 npm run tauri dev
 ```
 
-### Production Build
+### Building From Source
 ```bash
 # Compile native binary and installers (.deb & .AppImage)
 npm run tauri build
