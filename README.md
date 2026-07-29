@@ -95,38 +95,6 @@ chmod +x Terminalku_0.1.0_amd64.AppImage
 ./Terminalku_0.1.0_amd64.AppImage
 ```
 
----
-
-## 🛠️ Building & Contributing (For Developers)
-
-### Prerequisites for Developers
-1. **Node.js**: v18+ and `npm`
-2. **Rust**: Rustup & Cargo (`v1.75+`)
-3. **Linux System Build Dependencies (Debian/Ubuntu)**:
-   ```bash
-   sudo apt update
-   sudo apt install -y build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev fuser pkexec
-   ```
-
-### Development Setup
-```bash
-# 1. Clone repository
-git clone https://github.com/agandik/Terminalku.git
-cd Terminalku
-
-# 2. Install frontend dependencies
-npm install
-
-# 3. Launch Tauri dev server
-npm run tauri dev
-```
-
-### Building From Source
-```bash
-# Compile native binary and installers (.deb & .AppImage)
-npm run tauri build
-```
-Built installer bundles will be generated in `src-tauri/target/release/bundle/`.
 
 ---
 
