@@ -26,3 +26,8 @@ src-tauri/gen/schemas
 *.njsproj
 *.sln
 *.sw?
+
+# Agent internal workflow documentation
+AGENTS.md
+CLAUDE.md
+docs/

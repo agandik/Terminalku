@@ -96,11 +96,6 @@ chmod +x Terminalku_0.1.0_amd64.AppImage
 ```
 
 
----
-
-## 📄 Release & Auto-Updater Guide
-
-For instructions on publishing new version releases and configuring the `updater.json` manifest for GitHub Releases, refer to [docs/UPDATER.md](docs/UPDATER.md).
 
 ---
 
