@@ -71,9 +71,27 @@
 
 ## 📥 Installation for End-Users
 
-### Option 1: Official APT Repository (Debian / Ubuntu / Linux Mint)
+### Option 1: Direct `.deb` Package Download (Recommended - Ready to Use)
 
-Add the official **Terminalku** APT repository to your system to receive automatic updates via `sudo apt update && sudo apt upgrade`:
+Download and install the `.deb` package directly from [GitHub Releases](https://github.com/agandik/Terminalku/releases):
+
+```bash
+# 1. Download the latest .deb installer package
+wget https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb
+
+# 2. Install using APT (automatically handles all system dependencies)
+sudo apt install ./Terminalku_0.1.0_amd64.deb
+```
+
+Once installed, launch **Terminalku** from your Application Launcher or by typing `terminalku` in your terminal.
+
+---
+
+### Option 2: Official APT Repository (Automatic Updates via `apt upgrade`)
+
+> *Note: Requires GitHub Pages APT hosting enabled on your repository.*
+
+Add the official **Terminalku** APT repository to your system to receive automatic background updates via `sudo apt update && sudo apt upgrade`:
 
 ```bash
 # 1. Add GPG Key
@@ -85,20 +103,6 @@ echo "deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://a
 # 3. Update & Install
 sudo apt update
 sudo apt install terminalku
-```
-
----
-
-### Option 2: Direct `.deb` Package Download
-
-Download the `.deb` package directly from [GitHub Releases](https://github.com/agandik/Terminalku/releases):
-
-```bash
-# 1. Download the latest .deb installer package
-wget https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb
-
-# 2. Install using APT
-sudo apt install ./Terminalku_0.1.0_amd64.deb
 ```
 
 ---
