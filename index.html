@@ -1,28 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terminalku</title>
-    <script>
-      // Terapkan tema sebelum paint pertama agar tidak ada kedip gelap saat mode terang.
-      (function () {
-        try {
-          var saved = localStorage.getItem("remote_app_theme");
-          var mode = saved === "light" || saved === "dark" ? saved : null;
-          var theme =
-            mode ||
-            (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-          document.documentElement.setAttribute("data-theme", theme);
-          document.documentElement.style.colorScheme = theme;
-        } catch (e) {}
-      })();
-    </script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminalku — Next-Gen Desktop Remote Access Client</title>
+  <meta name="description" content="Ultra-fast, lightweight desktop application for SSH, Serial, Telnet, FTP, and Local Terminal management.">
+  <link rel="icon" type="image/svg+xml" href="public/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(21, 26, 38, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --accent: #10b981;
+      --accent-hover: #059669;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --code-bg: #0f172a;
+    }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      filter: drop-shadow(0 10px 25px rgba(16, 185, 129, 0.3));
+    }
+
+    .logo-wrap img {
+      width: 110px;
+      height: 110px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #042f2e;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      text-align: left;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      line-height: 1.7;
+    }
+
+    .code-comment { color: #64748b; }
+    .code-cmd { color: #f43f5e; }
+    .code-str { color: #a3e635; }
+
+    footer {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="public/logo.svg" alt="Terminalku Logo">
+    </div>
+    
+    <h1>Terminalku</h1>
+    <p.subtitle>Next-Gen Desktop Remote Access Client for SSH, Serial Console, Telnet, FTP, and Local Terminal management.</p.subtitle>
+
+    <div class="cta-group">
+      <a href="https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb" class="btn btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download .deb Installer
+      </a>
+      <a href="https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.AppImage" class="btn btn-secondary">
+        Download AppImage
+      </a>
+      <a href="https://github.com/agandik/Terminalku" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub Repository
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Install via APT Repository (Debian / Ubuntu / Linux Mint)
+      </div>
+      <div class="code-block">
+        <span class="code-comment"># 1. Add official Terminalku GPG Key</span><br>
+        <span class="code-cmd">curl</span> -fsSL https://agandik.github.io/Terminalku/KEY.gpg | <span class="code-cmd">sudo gpg</span> --dearmor -o /etc/apt/keyrings/terminalku-archive-keyring.gpg<br><br>
+        <span class="code-comment"># 2. Add APT Repository to sources.list.d</span><br>
+        <span class="code-cmd">echo</span> <span class="code-str">"deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/ stable main"</span> | <span class="code-cmd">sudo tee</span> /etc/apt/sources.list.d/terminalku.list > /dev/null<br><br>
+        <span class="code-comment"># 3. Update & Install</span><br>
+        <span class="code-cmd">sudo apt</span> update && <span class="code-cmd">sudo apt install</span> terminalku
+      </div>
+    </div>
+
+    <footer>
+      Terminalku Desktop Application • Distributed under the <a href="https://github.com/agandik/Terminalku/blob/main/LICENSE">MIT License</a>
+    </footer>
+  </div>
+</body>
 </html>
