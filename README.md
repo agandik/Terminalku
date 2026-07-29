@@ -113,6 +113,34 @@ chmod +x Terminalku_0.1.0_amd64.AppImage
 ./Terminalku_0.1.0_amd64.AppImage
 ```
 
+---
+
+## 🗑️ Uninstallation
+
+### Remove via APT (Debian / Ubuntu / Linux Mint)
+
+To uninstall **Terminalku** installed via `.deb` package or APT repository:
+
+```bash
+# 1. Remove the application package
+sudo apt remove terminalku
+
+# (Optional) Remove application along with configuration files
+sudo apt purge terminalku
+
+# (Optional) Clean up APT repository list & GPG keyring
+sudo rm /etc/apt/sources.list.d/terminalku.list
+sudo rm /etc/apt/keyrings/terminalku-archive-keyring.gpg
+```
+
+### Remove AppImage
+
+Simply remove the downloaded `.AppImage` file:
+
+```bash
+rm Terminalku_0.1.0_amd64.AppImage
+```
+
 
 
 ---
