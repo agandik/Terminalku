@@ -71,21 +71,39 @@
 
 ## 📥 Installation for End-Users
 
-### Debian / Ubuntu / Linux Mint (`.deb` Package via `apt`)
+### Option 1: Official APT Repository (Debian / Ubuntu / Linux Mint)
 
-You can install **Terminalku** directly on Ubuntu, Debian, Linux Mint, or Pop!_OS using `sudo apt install`:
+Add the official **Terminalku** APT repository to your system to receive automatic updates via `sudo apt update && sudo apt upgrade`:
 
 ```bash
-# 1. Download the latest .deb installer package from GitHub Releases
+# 1. Add GPG Key
+curl -fsSL https://agandik.github.io/Terminalku/KEY.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/terminalku-archive-keyring.gpg
+
+# 2. Add APT Repository to sources.list.d
+echo "deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/ stable main" | sudo tee /etc/apt/sources.list.d/terminalku.list > /dev/null
+
+# 3. Update & Install
+sudo apt update
+sudo apt install terminalku
+```
+
+---
+
+### Option 2: Direct `.deb` Package Download
+
+Download the `.deb` package directly from [GitHub Releases](https://github.com/agandik/Terminalku/releases):
+
+```bash
+# 1. Download the latest .deb installer package
 wget https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb
 
-# 2. Install using APT (automatically installs required system dependencies)
+# 2. Install using APT
 sudo apt install ./Terminalku_0.1.0_amd64.deb
 ```
 
-Once installed, **Terminalku** will appear in your Desktop Application Launcher, or you can launch it from terminal by typing `terminalku`.
+---
 
-### Portable Linux AppImage (No Installation Required)
+### Option 3: Portable Linux AppImage (No Installation Required)
 
 ```bash
 # Download and grant executable permission
