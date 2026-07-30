@@ -29,11 +29,14 @@ done
 
 mkdir -p "$POOL_DIR" "$BIN_DIR"
 
-# Salin paket baru ke pool kalau ada argumen.
+# Salin paket baru ke pool kalau ada argumen. Tauri memberi nama berkas dengan
+# huruf besar (Terminalku_...), tapi URL GitHub Pages peka huruf besar/kecil —
+# jadi normalkan ke huruf kecil sesuai konvensi Debian agar link di README cocok.
 for deb in "$@"; do
   [ -f "$deb" ] || { echo "error: berkas tidak ada: $deb" >&2; exit 1; }
-  echo "==> Menyalin $(basename "$deb") ke pool/"
-  cp -f "$deb" "$POOL_DIR/"
+  dest="$(basename "$deb" | tr '[:upper:]' '[:lower:]')"
+  echo "==> Menyalin $(basename "$deb") ke pool/ sebagai $dest"
+  cp -f "$deb" "$POOL_DIR/$dest"
 done
 
 shopt -s nullglob

@@ -2,14 +2,15 @@ Package: terminalku
 Version: 0.1.0
 Architecture: amd64
 Maintainer: Diki
-Installed-Size: 10652
+Installed-Size: 11624
 Depends: libwebkit2gtk-4.1-0, libgtk-3-0
 Filename: pool/main/t/terminalku/terminalku_0.1.0_amd64.deb
-Size: 4599742
-MD5sum: 32f20a08d8f38ecb7a7945364dc5af5d
-SHA1: 29794e538103af7a5dadc64ff5b116289eca6727
-SHA256: 10659cddba06589648f1cbbd5b4f4b50e3985e501acf423f6374cba9ab14821e
+Size: 5000110
+MD5sum: b5dde739b7a8d98ce3fc17bb60e39413
+SHA1: 03d5199c9db4808fe83041c8fd8f30bd93d8dcb7
+SHA256: a56861e9efed9bf7b860e40961dafecf3f453312e04edefbfa53ad41ab2d907e
+Section: net
 Priority: optional
-Description: Remote Access Desktop App (SSH/Telnet/Serial/FTP)
- (none)
+Description: Desktop remote access client (SSH, Serial, Telnet, FTP)
+ Terminalku is a fast, lightweight desktop remote access client for network engineers and system administrators. It bundles SSH, Telnet, serial console, FTP/FTPS, and a local terminal into a single multi-tab workspace with split views, snippet macros, and passive vendor detection.
 

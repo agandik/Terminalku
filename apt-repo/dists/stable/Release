@@ -1,24 +1,24 @@
 Architectures: amd64
 Codename: stable
 Components: main
-Date: Thu, 30 Jul 2026 02:12:57 +0000
+Date: Thu, 30 Jul 2026 02:56:40 +0000
 Description: Terminalku APT Repository
 Label: Terminalku
 Origin: Terminalku
 Suite: stable
 MD5Sum:
- 61315d7aea07479a63551fea8d04bfa9              183 Release
- a7c22b123512330b68f0d31c6e589b86              461 main/binary-amd64/Packages
- 2268a822794246189046941c61f4390d              356 main/binary-amd64/Packages.gz
+ 96828242e6285df60021829d0c622954              183 Release
+ 14a7198c44dbfed16965e9732ed71418              754 main/binary-amd64/Packages
+ 994c928da22d9906004cd6f4d4639ed0              510 main/binary-amd64/Packages.gz
 SHA1:
- 49fb4bc332df4e841b6b41efe5733b816d9e7ad6              183 Release
- e98d52538952d864042d6a3b7be0be470cf08da3              461 main/binary-amd64/Packages
- 897699e1b039b3061baaa7cf654cb2301c90091a              356 main/binary-amd64/Packages.gz
+ 643dd4aa2a3b05ac207643f69676fff39316db1a              183 Release
+ 7c6fc1f2cd3d53678afd53a1b7f47695e04cfe41              754 main/binary-amd64/Packages
+ 73a03e3ed6f425e3da0c2f586c11547795346659              510 main/binary-amd64/Packages.gz
 SHA256:
- bf25ed31141a1cee181728b12a91f974e7a525b369663b006c08d65f02aa52d7              183 Release
- 90c4a099de94045e1fff244e13c9ef579421c2cbc486704945560df063900297              461 main/binary-amd64/Packages
- c9b504ff4c65663a84856ba4d58d33c64574e8b242799dd030b3fc90b2cc53f4              356 main/binary-amd64/Packages.gz
+ 70ec67c183de0904001131f5cf8ec3e6cccc512edff90d71e2140b2c991cddb3              183 Release
+ 411338f9685ff98592037be4755a0bbb4799387cc662286bf829a1de5a83b2f1              754 main/binary-amd64/Packages
+ 750df2226e2e9a6c34c8c505df5a9d8abb1e1de44f5651afd05877b3efb2a286              510 main/binary-amd64/Packages.gz
 SHA512:
- 090341ca1a242382bbf6d5ee8b802e3205efd9ec1c86c9606e55a1d95c663a4b038ab384760089474312b7502a9851bf25ce09131179d1d40d6ffd627d2136c5              183 Release
- d63a0865bc7d3051144ba7ea482b89e6904ca1e8a347e808cc1d07f49d1818bf8a9e5e6f0aca8f90f867e9cd011455e5a7bad11f19a2b7c3dbe3ac39747c2f12              461 main/binary-amd64/Packages
- cdf202a5fc6683917762f250252faea3bbd6fb567dc78e953f89d7a86587cca91afdf45b6d1a84ec12b99dacbcf1656eea036830b6f5a57aff7659130bd0035d              356 main/binary-amd64/Packages.gz
+ e7f768247357f7ee68a67ad219ad4b1114156898e0fe79ba7401058a59125fc70a250057690c92e090f1b988bca9014967bca45f3a0c9b491c1dbdf318262c69              183 Release
+ 3cc49744ac939440297d84d88eb3e5ecd4f6f6066288242916a0b589ada5413029dcb0516a17bdbc3ac0499c4376ce5e54d9e388f6b581510ac42d87ea26071d              754 main/binary-amd64/Packages
+ b9c51c9ae2b829464e6d49549ec5c503fd415a1f8fb941928ec1c547496e51f5ed3cee12ec5f9edc94a477198110643a4ae4f19491fdcad9b0a04dbce4ee5a08              510 main/binary-amd64/Packages.gz
