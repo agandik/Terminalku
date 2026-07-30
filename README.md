@@ -1,7 +1,7 @@
 <div align="center">
   <img src="public/logo.svg" alt="Terminalku Logo" width="120" height="120" />
   <h1>Terminalku</h1>
-  <p><strong>Next-Gen Desktop Remote Access Client (SSH, Serial, Telnet, FTP & Local Terminal)</strong></p>
+  <p>Desktop remote access client — SSH, Telnet, Serial, FTP, and local terminal in one place.</p>
 
   [![Tauri v2](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://v2.tauri.app/)
   [![React 19](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
@@ -11,149 +11,113 @@
 
 ---
 
-## 📖 Overview
-
-**Terminalku** is a modern, ultra-fast, and lightweight desktop application engineered specifically for network engineers, system administrators, and developers. Built on **Tauri v2** and **React 19**, it provides an all-in-one remote access suite for **SSH**, **Telnet**, **Serial Console**, **FTP/FTPS**, and **Local Terminal (PTY)** sessions with a Termius-inspired user interface.
+Terminalku is a desktop app built for network engineers and sysadmins who manage a lot of devices. It handles SSH, Telnet, Serial console, FTP/FTPS, and a local PTY shell — all in one window with a multi-tab interface. Built with Tauri v2 (Rust) and React 19, so it's fast and doesn't eat memory like Electron-based alternatives.
 
 ---
 
-## ✨ Key Features
+## Features
 
-### 📡 1. Smart Serial Console & Hardware Management
-- **Real-Time Port Discovery**: Automatically detects connected USB-to-Serial adapters (`/dev/ttyUSB*`, `/dev/ttyACM*`, `COM*`) on the fly.
-- **Sub-Second Baud Rate Auto-Detection**: Uses pure ASCII ratio evaluation & prompt heuristics to accurately identify target baud rates (`38400`, `115200`, `9600`, `57600`, `19200`) in `<0.4s` without lag.
-- **1-Click Dialout & udev Fix (Linux)**: Fixes `Permission Denied` errors in one click via `pkexec` (adds user to `dialout` group and creates `/etc/udev/rules.d/99-remote-app-serial.rules`).
-- **Force Release on `EBUSY`**: Automatically kills lock files or background processes locking the serial device (`fuser -k -9`).
-- **Framing Noise Sanitizer**: Filters out non-ASCII garbage bytes (`\uFFFD`) caused by mismatched initial baud rates.
+### Serial Console
 
-### 🔐 2. Enterprise SSH & Telnet Engine
-- **Full SSH v2 Suite**: Supports password & private key authentication (*RSA, ED25519, ECDSA*) with passphrase handling.
-- **Telnet Auto-Expect Login**: Handles Telnet IAC negotiations (ECHO, SGA, NAWS) and performs automatic credential submission upon prompt detection.
-- **Auto-Reconnect**: Seamlessly attempts connection recovery if network drops occur.
+Plug in a USB-to-Serial adapter and Terminalku picks it up automatically — no need to manually type `/dev/ttyUSB0` every time. Baud rate detection runs in under 0.4 seconds using ASCII ratio analysis, so you get a clean prompt right away. If you hit a `Permission Denied` on Linux, there's a one-click fix that adds you to the `dialout` group and sets up the right udev rule without having to touch the terminal yourself.
 
-### 💻 3. Multi-Tab Workspace & Split Terminal
-- **Local Shell (PTY)**: Integrated system terminal (`bash`, `zsh`, `powershell`, `cmd`) right inside the workspace.
-- **Split-Screen Workspace**: Compare sessions in real-time with vertical and horizontal split views.
-- **Termius-Style Multi-Tab UX**: Tab re-ordering, smooth keyboard shortcuts (`Ctrl+B` for sidebar, `Ctrl+F` for terminal search), and mouse wheel tab navigation.
+Other things it handles: releasing locked ports (`EBUSY`) automatically and filtering out the garbage bytes that show up when the baud rate is wrong at startup.
 
-### 📂 4. Dual-Pane FTP & FTPS File Manager
-- **Side-by-Side File Explorer**: Browse local storage (left pane) and remote servers (right pane) simultaneously over secure TLS (FTPS).
+### SSH & Telnet
 
-### 🏷️ 5. Passive Vendor Detection & Command Presets
-- **Hardware Recognition**: Passively detects vendor hardware & OS types from console banners (Cisco, MikroTik, Huawei, Juniper, Linux).
-- **Contextual Command Palette**: Offers quick-action command presets tailored to the active tab's detected vendor.
+SSH v2 with password or private key auth (RSA, ED25519, ECDSA). Telnet handles IAC negotiation and auto-submits credentials when it sees a login prompt. Both reconnect automatically if the connection drops.
 
-### 📌 6. Snippet & Macro Library
-- **Persistent Macro Library**: Save frequently used commands into a local SQLite database.
-- **Vendor Filtering & 1-Click Dispatch**: Filter snippets by vendor category and send commands directly to active terminals in a single click.
+### Multi-Tab & Split View
 
-### 🎨 7. Adaptive Appearance & Live Preview
-- **Dynamic Light / Dark Theme**: Automatically adapts between Dark Mode and Light Mode based on system settings or user preference.
-- **Live Preview & Safe Rollback**: Preview UI appearance changes live in the background, with instant auto-rollback if canceled without saving.
+Open multiple sessions in tabs, split them side by side, and switch between them with keyboard shortcuts. `Ctrl+B` toggles the sidebar, `Ctrl+F` opens terminal search. There's also a local shell tab if you need a quick bash/zsh session without spinning up a new terminal window.
 
-### 🚀 8. In-App Auto-Updater (Tauri v2)
-- **Background Update Checker**: Checks for new version releases automatically on startup.
-- **Sleek Update Modal**: View release notes, progress bars, and relaunch into new versions seamlessly.
+### FTP / FTPS
+
+Dual-pane file manager — local files on the left, remote on the right. Supports plain FTP and FTPS (TLS).
+
+### Vendor Detection
+
+Terminalku reads the console banner when a session opens and tries to identify the hardware — Cisco, MikroTik, Huawei, Juniper, Linux. When it recognizes a vendor, the command palette shows relevant commands for that device type. It's passive, nothing gets sent to the device.
+
+### Snippet Library
+
+Save commands you use often into a local SQLite database. Filter by vendor, click to send. Useful when you find yourself typing the same `show` commands dozens of times a day.
+
+### Themes & Updates
+
+Light and dark mode, follows your system setting by default. There's also a live preview for theme changes that rolls back automatically if you close the dialog without saving.
+
+Auto-updater runs in the background on startup — if there's a new version, it shows a modal with release notes and a progress bar. No need to re-download manually.
 
 ---
 
-## 🛠️ Architecture & Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 | :--- | :--- |
-| **Core Desktop** | [Tauri v2](https://v2.tauri.app/) (Rust + Webview) |
-| **Protocol Engine** | `russh` (SSH), `tokio-serial` (Serial UART), `suppaftp` (FTP), `portable-pty` (Local PTY) |
-| **Frontend UI** | React 19, TypeScript, Vite, Vanilla CSS, Lucide Icons |
-| **Terminal Rendering** | `@xterm/xterm` v5 with `fit`, `web-links`, and `search` addons |
-| **Local Storage** | SQLite (Profiles & Folders) + OS Native Credential Keyring |
+| Core | [Tauri v2](https://v2.tauri.app/) (Rust + Webview) |
+| Protocols | `russh` (SSH), `tokio-serial` (Serial), `suppaftp` (FTP), `portable-pty` (Local PTY) |
+| Frontend | React 19, TypeScript, Vite, Vanilla CSS |
+| Terminal | `@xterm/xterm` v5 |
+| Storage | SQLite + OS keyring |
 
 ---
 
-## 📥 Installation for End-Users
+## Installation
 
-> **Requirements:** Debian 11+ / Ubuntu 22.04+ / Linux Mint 21+ on `amd64`, with `libwebkit2gtk-4.1-0` and `libgtk-3-0` available in your distro's repositories.
+**Requirements:** Debian 11+ / Ubuntu 22.04+ / Linux Mint 21+, `amd64`.
 
-### Option 1: Official APT Repository (Recommended — Automatic Updates via `apt upgrade`)
-
-Add the official **Terminalku** APT repository to receive updates through your normal `sudo apt update && sudo apt upgrade` cycle:
+### APT Repository (recommended — gets updates automatically)
 
 ```bash
-# 1. Add the archive signing key
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://agandik.github.io/Terminalku/KEY.gpg \
   | sudo tee /etc/apt/keyrings/terminalku-archive-keyring.gpg > /dev/null
 
-# 2. Register the repository
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/apt-repo stable main" \
   | sudo tee /etc/apt/sources.list.d/terminalku.list > /dev/null
 
-# 3. Update & install
-sudo apt update
-sudo apt install terminalku
+sudo apt update && sudo apt install terminalku
 ```
 
-Once installed, launch **Terminalku** from your Application Launcher or by typing `terminalku` in your terminal.
+After that, `sudo apt upgrade` will keep it up to date like any other package.
 
----
-
-### Option 2: Direct `.deb` Package Download (One-Off Install, No Auto-Updates)
-
-Download the `.deb` straight from the repository pool and let APT resolve its dependencies:
+### Direct .deb download
 
 ```bash
-# 1. Download the .deb installer package
 wget https://agandik.github.io/Terminalku/apt-repo/pool/main/t/terminalku/terminalku_0.1.0_amd64.deb
-
-# 2. Install it (APT pulls in the required system libraries)
 sudo apt install ./terminalku_0.1.0_amd64.deb
 ```
 
----
+### AppImage (no install)
 
-### Option 3: Portable Linux AppImage (No Installation Required)
-
-Grab `Terminalku_0.1.0_amd64.AppImage` from [GitHub Releases](https://github.com/agandik/Terminalku/releases), then:
+Download `Terminalku_0.1.0_amd64.AppImage` from [Releases](https://github.com/agandik/Terminalku/releases), then:
 
 ```bash
-# Grant executable permission
 chmod +x Terminalku_0.1.0_amd64.AppImage
-
-# Run Terminalku directly
 ./Terminalku_0.1.0_amd64.AppImage
 ```
 
 ---
 
-## 🗑️ Uninstallation
-
-### Remove via APT (Debian / Ubuntu / Linux Mint)
-
-To uninstall **Terminalku** installed via `.deb` package or APT repository:
+## Uninstall
 
 ```bash
-# 1. Remove the application package
+# Remove the package
 sudo apt remove terminalku
 
-# (Optional) Remove application along with configuration files
+# Or purge including config files
 sudo apt purge terminalku
 
-# (Optional) Clean up APT repository list & GPG keyring
+# Clean up the repo entry if you added it
 sudo rm /etc/apt/sources.list.d/terminalku.list
 sudo rm /etc/apt/keyrings/terminalku-archive-keyring.gpg
 ```
 
-### Remove AppImage
-
-Simply remove the downloaded `.AppImage` file:
-
-```bash
-rm Terminalku_0.1.0_amd64.AppImage
-```
-
-
+For AppImage, just delete the file.
 
 ---
 
-## 📜 License
+## License
 
-Distributed under the **MIT License**. Created and maintained for high-efficiency remote management. Copyright © 2026 Terminalku Team.
+MIT — see [LICENSE](LICENSE).
