@@ -8,6 +8,15 @@ const host = process.env.TAURI_DEV_HOST;
 export default defineConfig(async () => ({
   plugins: [react()],
 
+  // `index.html` di root dipakai landing page GitHub Pages, jadi entry aplikasi
+  // dipisah ke `app.html` agar `npm run build` tidak mengemas landing page
+  // sebagai isi jendela Tauri.
+  build: {
+    rollupOptions: {
+      input: "app.html",
+    },
+  },
+
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
   // 1. prevent Vite from obscuring rust errors

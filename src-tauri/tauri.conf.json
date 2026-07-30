@@ -13,6 +13,7 @@
     "windows": [
       {
         "title": "Terminalku",
+        "url": "app.html",
         "width": 1000,
         "height": 680,
         "resizable": true,
