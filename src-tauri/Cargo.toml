@@ -14,6 +14,13 @@ edition = "2021"
 name = "remote_app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
+# Nama paket tetap `remote-app` (keputusan terkunci), tapi berkas yang dipasang
+# harus bernama `terminalku` supaya perintah terminal cocok dengan nama produk
+# dan dengan instruksi di README.
+[[bin]]
+name = "terminalku"
+path = "src/main.rs"
+
 [build-dependencies]
 tauri-build = { version = "2", features = [] }
 

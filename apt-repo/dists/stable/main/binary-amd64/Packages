@@ -5,10 +5,10 @@ Maintainer: Diki
 Installed-Size: 11792
 Depends: libwebkit2gtk-4.1-0, libgtk-3-0
 Filename: pool/main/t/terminalku/terminalku_0.1.0_amd64.deb
-Size: 5174792
-MD5sum: d6988b11ee98000efe2957ffcf9eef6f
-SHA1: 9aff11d1c0486126cb0c55c85f4e0b20825687a0
-SHA256: fb159b41c203581c16ddb3ddf69f8ccf29d2df57c30a64b40cac4f3ce6f3cffc
+Size: 5174778
+MD5sum: d783f52a2526fe73a294574357ef3cb5
+SHA1: e40f472df0c0e5c0423643f5d7f99503b65c1006
+SHA256: cf0bd875652f4b021a391aca02f463f67c68ff8541049caafd5fc618de19ca38
 Section: net
 Priority: optional
 Description: Desktop remote access client (SSH, Serial, Telnet, FTP)
