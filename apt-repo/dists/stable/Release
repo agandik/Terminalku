@@ -1,18 +1,24 @@
-Origin: Terminalku
-Label: Terminalku
-Suite: stable
-Codename: stable
-Version: 0.1.0
 Architectures: amd64
+Codename: stable
 Components: main
+Date: Thu, 30 Jul 2026 02:12:57 +0000
 Description: Terminalku APT Repository
-Date: Thu, 30 Jul 2026 02:01:18 +0000
+Label: Terminalku
+Origin: Terminalku
+Suite: stable
 MD5Sum:
- b4ef4fb12a782c4ecd61d3c82cbafc09 648 main/binary-amd64/Packages
- bcdd0fdcd8c7bc91219f703145e0d769 452 main/binary-amd64/Packages.gz
+ 61315d7aea07479a63551fea8d04bfa9              183 Release
+ a7c22b123512330b68f0d31c6e589b86              461 main/binary-amd64/Packages
+ 2268a822794246189046941c61f4390d              356 main/binary-amd64/Packages.gz
 SHA1:
- ddf97f6c7ff21a3007449a132f32fe8a2008d3dc 648 main/binary-amd64/Packages
- fa3eab9aa298c7b5d565faad5bc563cfb7b2df4e 452 main/binary-amd64/Packages.gz
+ 49fb4bc332df4e841b6b41efe5733b816d9e7ad6              183 Release
+ e98d52538952d864042d6a3b7be0be470cf08da3              461 main/binary-amd64/Packages
+ 897699e1b039b3061baaa7cf654cb2301c90091a              356 main/binary-amd64/Packages.gz
 SHA256:
- 81fc09162ab8a3aa38a75ea10d2708b18663bf8808614ea73f6bac3dd5440c78 648 main/binary-amd64/Packages
- ff1d6e28a15cbdf1380cbb19a68738e1818a60920ef023f470381e630072db73 452 main/binary-amd64/Packages.gz
+ bf25ed31141a1cee181728b12a91f974e7a525b369663b006c08d65f02aa52d7              183 Release
+ 90c4a099de94045e1fff244e13c9ef579421c2cbc486704945560df063900297              461 main/binary-amd64/Packages
+ c9b504ff4c65663a84856ba4d58d33c64574e8b242799dd030b3fc90b2cc53f4              356 main/binary-amd64/Packages.gz
+SHA512:
+ 090341ca1a242382bbf6d5ee8b802e3205efd9ec1c86c9606e55a1d95c663a4b038ab384760089474312b7502a9851bf25ce09131179d1d40d6ffd627d2136c5              183 Release
+ d63a0865bc7d3051144ba7ea482b89e6904ca1e8a347e808cc1d07f49d1818bf8a9e5e6f0aca8f90f867e9cd011455e5a7bad11f19a2b7c3dbe3ac39747c2f12              461 main/binary-amd64/Packages
+ cdf202a5fc6683917762f250252faea3bbd6fb567dc78e953f89d7a86587cca91afdf45b6d1a84ec12b99dacbcf1656eea036830b6f5a57aff7659130bd0035d              356 main/binary-amd64/Packages.gz

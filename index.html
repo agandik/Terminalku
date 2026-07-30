@@ -178,7 +178,7 @@
     <p.subtitle>Next-Gen Desktop Remote Access Client for SSH, Serial Console, Telnet, FTP, and Local Terminal management.</p.subtitle>
 
     <div class="cta-group">
-      <a href="https://github.com/agandik/Terminalku/releases/download/v0.1.0/Terminalku_0.1.0_amd64.deb" class="btn btn-primary">
+      <a href="https://agandik.github.io/Terminalku/apt-repo/pool/main/t/terminalku/terminalku_0.1.0_amd64.deb" class="btn btn-primary">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download .deb Installer
       </a>
@@ -197,10 +197,11 @@
         Install via APT Repository (Debian / Ubuntu / Linux Mint)
       </div>
       <div class="code-block">
-        <span class="code-comment"># 1. Add official Terminalku GPG Key</span><br>
-        <span class="code-cmd">curl</span> -fsSL https://agandik.github.io/Terminalku/KEY.gpg | <span class="code-cmd">sudo gpg</span> --dearmor -o /etc/apt/keyrings/terminalku-archive-keyring.gpg<br><br>
+        <span class="code-comment"># 1. Add official Terminalku archive signing key</span><br>
+        <span class="code-cmd">sudo mkdir</span> -p /etc/apt/keyrings<br>
+        <span class="code-cmd">curl</span> -fsSL https://agandik.github.io/Terminalku/KEY.gpg | <span class="code-cmd">sudo tee</span> /etc/apt/keyrings/terminalku-archive-keyring.gpg > /dev/null<br><br>
         <span class="code-comment"># 2. Add APT Repository to sources.list.d</span><br>
-        <span class="code-cmd">echo</span> <span class="code-str">"deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/ stable main"</span> | <span class="code-cmd">sudo tee</span> /etc/apt/sources.list.d/terminalku.list > /dev/null<br><br>
+        <span class="code-cmd">echo</span> <span class="code-str">"deb [arch=amd64 signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/apt-repo stable main"</span> | <span class="code-cmd">sudo tee</span> /etc/apt/sources.list.d/terminalku.list > /dev/null<br><br>
         <span class="code-comment"># 3. Update & Install</span><br>
         <span class="code-cmd">sudo apt</span> update && <span class="code-cmd">sudo apt install</span> terminalku
       </div>

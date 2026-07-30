@@ -1,0 +1,9 @@
+# Berkas repositori APT harus byte-exact: checksum di Release dan tanda tangan
+# GPG langsung rusak kalau Git menormalisasi akhir baris (mis. saat clone di Windows).
+KEY.gpg                                 -text
+apt-repo/dists/**/InRelease             -text
+apt-repo/dists/**/Release               -text
+apt-repo/dists/**/Release.gpg           -text
+apt-repo/dists/**/Packages              -text
+apt-repo/dists/**/Packages.gz           binary
+apt-repo/pool/**/*.deb                  binary

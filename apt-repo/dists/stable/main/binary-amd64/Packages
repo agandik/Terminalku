@@ -13,6 +13,3 @@ Priority: optional
 Description: Remote Access Desktop App (SSH/Telnet/Serial/FTP)
  (none)
 
-dpkg-scanpackages: warning: Packages in archive but missing from override file:
-dpkg-scanpackages: warning:   terminalku
-dpkg-scanpackages: info: Wrote 1 entries to output Packages file.
