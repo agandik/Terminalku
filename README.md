@@ -89,8 +89,6 @@ Once installed, launch **Terminalku** from your Application Launcher or by typin
 
 ### Option 2: Official APT Repository (Automatic Updates via `apt upgrade`)
 
-> *Note: Requires GitHub Pages APT hosting enabled on your repository.*
-
 Add the official **Terminalku** APT repository to your system to receive automatic background updates via `sudo apt update && sudo apt upgrade`:
 
 ```bash
@@ -98,7 +96,7 @@ Add the official **Terminalku** APT repository to your system to receive automat
 curl -fsSL https://agandik.github.io/Terminalku/KEY.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/terminalku-archive-keyring.gpg
 
 # 2. Add APT Repository to sources.list.d
-echo "deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/ stable main" | sudo tee /etc/apt/sources.list.d/terminalku.list > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/terminalku-archive-keyring.gpg] https://agandik.github.io/Terminalku/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/terminalku.list > /dev/null
 
 # 3. Update & Install
 sudo apt update
