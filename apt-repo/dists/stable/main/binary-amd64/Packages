@@ -1,0 +1,18 @@
+Package: terminalku
+Version: 0.1.0
+Architecture: amd64
+Maintainer: Diki
+Installed-Size: 10652
+Depends: libwebkit2gtk-4.1-0, libgtk-3-0
+Filename: pool/main/t/terminalku/terminalku_0.1.0_amd64.deb
+Size: 4599742
+MD5sum: 32f20a08d8f38ecb7a7945364dc5af5d
+SHA1: 29794e538103af7a5dadc64ff5b116289eca6727
+SHA256: 10659cddba06589648f1cbbd5b4f4b50e3985e501acf423f6374cba9ab14821e
+Priority: optional
+Description: Remote Access Desktop App (SSH/Telnet/Serial/FTP)
+ (none)
+
+dpkg-scanpackages: warning: Packages in archive but missing from override file:
+dpkg-scanpackages: warning:   terminalku
+dpkg-scanpackages: info: Wrote 1 entries to output Packages file.

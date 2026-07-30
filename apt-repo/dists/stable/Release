@@ -1,0 +1,18 @@
+Origin: Terminalku
+Label: Terminalku
+Suite: stable
+Codename: stable
+Version: 0.1.0
+Architectures: amd64
+Components: main
+Description: Terminalku APT Repository
+Date: Thu, 30 Jul 2026 02:01:18 +0000
+MD5Sum:
+ b4ef4fb12a782c4ecd61d3c82cbafc09 648 main/binary-amd64/Packages
+ bcdd0fdcd8c7bc91219f703145e0d769 452 main/binary-amd64/Packages.gz
+SHA1:
+ ddf97f6c7ff21a3007449a132f32fe8a2008d3dc 648 main/binary-amd64/Packages
+ fa3eab9aa298c7b5d565faad5bc563cfb7b2df4e 452 main/binary-amd64/Packages.gz
+SHA256:
+ 81fc09162ab8a3aa38a75ea10d2708b18663bf8808614ea73f6bac3dd5440c78 648 main/binary-amd64/Packages
+ ff1d6e28a15cbdf1380cbb19a68738e1818a60920ef023f470381e630072db73 452 main/binary-amd64/Packages.gz

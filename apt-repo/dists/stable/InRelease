@@ -1,0 +1,37 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Terminalku
+Label: Terminalku
+Suite: stable
+Codename: stable
+Version: 0.1.0
+Architectures: amd64
+Components: main
+Description: Terminalku APT Repository
+Date: Thu, 30 Jul 2026 02:01:18 +0000
+MD5Sum:
+ b4ef4fb12a782c4ecd61d3c82cbafc09 648 main/binary-amd64/Packages
+ bcdd0fdcd8c7bc91219f703145e0d769 452 main/binary-amd64/Packages.gz
+SHA1:
+ ddf97f6c7ff21a3007449a132f32fe8a2008d3dc 648 main/binary-amd64/Packages
+ fa3eab9aa298c7b5d565faad5bc563cfb7b2df4e 452 main/binary-amd64/Packages.gz
+SHA256:
+ 81fc09162ab8a3aa38a75ea10d2708b18663bf8808614ea73f6bac3dd5440c78 648 main/binary-amd64/Packages
+ ff1d6e28a15cbdf1380cbb19a68738e1818a60920ef023f470381e630072db73 452 main/binary-amd64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAOczA/k28B2ZYN1EPwIAlYePeAIFAmpqsHYACgkQPwIAlYeP
+eAJ0pQ/+LM57OC+TTx381mkxd2GC96358vlY+F9jw5xfNdo/GB+qKczsDDBmWAEG
+gGAQOPSGYRT1u79OMyr+33SNOV4BlNjqdjaN/6tzFoh7BZwRILrABAStqd9uzssk
+FPm79tO4MaB1MO/xfnLbdSTKACESyVbgLwTEd9CGTxmN75YNbv+96TGUkJexNyqq
+youq2y+/YjvH/0yg9t7rW4QsFCfzahO5l6QC11BdBcoXzhv7EN+zRRQADin9RAVC
+VtOkE69sQJ1ybSSxYoB6xCznepmmvgroKRj3m9xH9TOvVJ2uQE5JgM5wQjCt4FFn
+3r+rKz0/erd0ap0aNumsaJR/KP3XbvmDM6r/twYflDejLwlEASPKoo3k7csqscRm
+4GTatY5u0150LPvT29L9lHgYMbQOhuibTq825a0L9i7nbNBYc5uRWXaeJdjUrubR
+gc3TQdgjrXOUNNa+7ZMAZy/Lelw65trk557OBOV2q5rT018T2D926i/L90W756aW
+gbxbVb4TCULEkTBweEzMY7qaN0iw+T8usuhknkBXV4r1lZLHsqwHNzyViPhdWQGP
+VW90lEzgHGHRHYFycANUc476T2nZPDsg87oujjEWd7/Qszx7HgICj/ZYsdIweYWl
+JJausR/hrCgh4eBuAVQHDlDr5xpCJvbhMEYJuUeq2swQnk1O7iw=
+=hc77
+-----END PGP SIGNATURE-----
